@@ -1,84 +1,67 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <title>Scorp Hosting</title>
+  <meta charset="UTF-8">
+  <title>Scorp - واجهة ترحيبية</title>
   <style>
     body {
       margin: 0;
-      background-image: url("background.jpg");
-      background-size: cover;
-      background-position: center;
-      font-family: Arial, sans-serif;
+      padding: 0;
+      background-color: #ffe6f0; /* وردي فاتح */
+      font-family: 'Arial', sans-serif;
+      color: #333;
     }
 
     .container {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      align-items: center;
+      justify-content: center;
       height: 100vh;
-      color: white;
       text-align: center;
-      padding: 20px;
     }
 
     .logo {
       width: 100px;
-      margin: 20px auto 0;
+      margin-bottom: 20px;
     }
 
     .title {
-      font-size: 28px;
-      margin-top: 20px;
-      color: orange;
+      font-size: 30px;
+      font-weight: bold;
+      color: #d63384; /* وردي غامق */
+      margin-bottom: 10px;
     }
 
     .dynamic-text {
       font-size: 22px;
-      color: white;
+      color: #6f42c1; /* بنفسجي ناعم */
       height: 30px;
-      margin: 10px 0;
+      margin-bottom: 40px;
     }
 
-    .orange-button {
-      background-color: orange;
+    .pink-button {
+      background-color: #d63384;
       color: white;
       border: none;
-      padding: 15px 30px;
-      font-size: 20px;
+      padding: 12px 25px;
+      font-size: 18px;
+      border-radius: 8px;
       cursor: pointer;
-      border-radius: 5px;
-      margin: 40px auto 0;
+      transition: background-color 0.3s;
     }
 
-    .top-buttons {
-      display: flex;
-      justify-content: flex-end;
-      padding: 20px;
-    }
-
-    .top-buttons button {
-      background-color: white;
-      color: orange;
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      border-radius: 5px;
+    .pink-button:hover {
+      background-color: #c22571;
     }
   </style>
 </head>
 <body>
-  <div class="top-buttons">
-    <button onclick="window.location.href='login.html'">تسجيل الدخول</button>
-  </div>
-
   <div class="container">
     <img src="logo.png" alt="logo" class="logo" />
-    <div class="title">logo</div>
+    <div class="title">Scorp</div>
     <div class="dynamic-text" id="typingText"></div>
-
-    <button class="orange-button" onclick="window.location.href='plan.html'">Get Host</button>
+    <button class="pink-button" onclick="alert('مرحبًا بك في Scorp!')">ابدأ الآن</button>
   </div>
 
   <script>
@@ -97,7 +80,6 @@
     function typeEffect() {
       const fullText = phrases[currentPhrase];
       const displayedText = fullText.substring(0, currentChar);
-
       textElement.textContent = displayedText;
 
       if (!isDeleting) {
@@ -105,7 +87,7 @@
           currentChar++;
         } else {
           isDeleting = true;
-          setTimeout(typeEffect, 1500); // Wait before deleting
+          setTimeout(typeEffect, 1500); // تأخير قبل الحذف
           return;
         }
       } else {
