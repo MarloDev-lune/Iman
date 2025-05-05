@@ -5,185 +5,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Iman Page</title>
   <style>
+    /* Global Styles */
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background-color: #f4f4f4;
+      color: #333;
     }
-    header {
-      background-color: #333;
-      color: white;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
+
+    /* Welcome Screen */
+    .welcome-screen {
+      position: fixed;
       top: 0;
-      z-index: 1000;
-    }
-    nav a {
-      color: white;
-      margin-left: 1rem;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      color: #ffa500;
-    }
-    section {
-      padding: 4rem 2rem;
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    .home {
-      background: url('https://picsum.photos/seed/home/1200/600') no-repeat center center/cover;
-      height: 100vh;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
       display: flex;
+      justify-content: center;
       align-items: center;
-      justify-content: center;
-      color: white;
-      text-shadow: 2px 2px 10px black;
-      flex-direction: column;
+      z-index: 9999;
     }
-    .services, .about, .contact, .gallery {
-      background-color: white;
-      margin: 2rem auto;
-      max-width: 1000px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    .service-item, .gallery img {
-      margin: 1rem;
-    }
-    .services .content, .about .content {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .service-item {
-      flex: 1 1 250px;
-      background: #f9f9f9;
-      padding: 1rem;
-      margin: 1rem;
-      border-radius: 10px;
-      text-align: center;
-      transition: 0.3s;
-    }
-    .service-item:hover {
-      background: #ffe5b4;
-    }
-    .gallery img {
-      width: 300px;
-      border-radius: 10px;
-      transition: transform 0.3s ease;
-    }
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
-    footer {
-      background-color: #333;
+    .welcome-message {
+      font-size: 2rem;
       color: white;
       text-align: center;
-      padding: 1rem;
-      margin-top: 3rem;
+      font-weight: bold;
+      animation: typing 4s steps(40) 1s forwards, delete 4s steps(40) 9s forwards;
     }
-    .contact form {
-      display: flex;
-      flex-direction: column;
-      max-width: 600px;
-      margin: auto;
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 21ch; }
     }
-    .contact input, .contact textarea {
-      padding: 0.8rem;
-      margin: 0.5rem 0;
-      border-radius: 5px;
-      border: 1px solid #ccc;
+    @keyframes delete {
+      from { width: 21ch; }
+      to { width: 0; }
     }
-    .contact button {
-      padding: 1rem;
-      background-color: #ffa500;
-      color: white;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-    .contact button:hover {
-      background-color: #e69500;
-    }
+
   </style>
 </head>
 <body>
 
-  <header>
-    <div><strong>IMAN SITE</strong></div>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <section class="home" id="home">
-    <h1>Welcome to IMAN Website</h1>
-    <p>Explore, Learn, Enjoy</p>
-  </section>
-
-  <section class="about" id="about">
-    <h2>About Us</h2>
-    <div class="content">
-      <p style="padding: 1rem 2rem;">
-        We are a creative team dedicated to delivering high-quality web experiences. Our goal is to inspire users with interactive, beautiful, and practical websites.
-      </p>
-      <img src="https://picsum.photos/seed/about/400/250" alt="About Image" style="border-radius:10px; max-width:100%; margin: 1rem auto; display: block;">
+  <!-- Welcome Screen Section -->
+  <div class="welcome-screen">
+    <div class="welcome-message">
+      Welcome To Iman Website
     </div>
-  </section>
+  </div>
 
-  <section class="services" id="services">
-    <h2>Our Services</h2>
-    <div class="content">
-      <div class="service-item">
-        <h3>Web Development</h3>
-        <p>Custom websites with modern technologies and responsive design.</p>
-      </div>
-      <div class="service-item">
-        <h3>UI/UX Design</h3>
-        <p>Interactive and user-friendly designs that engage your audience.</p>
-      </div>
-      <div class="service-item">
-        <h3>SEO Optimization</h3>
-        <p>Boost your website’s visibility and reach with our SEO strategies.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="gallery" id="gallery">
-    <h2>Gallery</h2>
-    <div class="content" style="display: flex; flex-wrap: wrap; justify-content: center;">
-      <img src="https://picsum.photos/seed/gallery1/300/200" alt="Gallery 1">
-      <img src="https://picsum.photos/seed/gallery2/300/200" alt="Gallery 2">
-      <img src="https://picsum.photos/seed/gallery3/300/200" alt="Gallery 3">
-      <img src="https://picsum.photos/seed/gallery4/300/200" alt="Gallery 4">
-    </div>
-  </section>
-
-  <section class="contact" id="contact">
-    <h2>Contact Us</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Iman Website. All rights reserved.</p>
-  </footer>
+  <script>
+    // JavaScript to remove the welcome screen after animation is finished
+    window.onload = () => {
+      setTimeout(() => {
+        document.querySelector('.welcome-screen').style.display = 'none';
+      }, 13000); // The welcome screen will disappear after 13 seconds
+    };
+  </script>
 
 </body>
 </html>
-
