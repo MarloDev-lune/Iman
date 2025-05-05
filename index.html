@@ -20,46 +20,84 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
+      background-color: #ff69b4; /* Pink background */
       display: flex;
       justify-content: center;
       align-items: center;
       z-index: 9999;
+      overflow: hidden;
     }
+
+    .welcome-message-container {
+      display: flex;
+      align-items: center;
+    }
+
     .welcome-message {
       font-size: 2rem;
       color: white;
-      text-align: center;
       font-weight: bold;
-      animation: typing 4s steps(40) 1s forwards, delete 4s steps(40) 9s forwards;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid white;
+      padding-right: 5px;
+      animation: typing 6s steps(40) 1s forwards;
+    }
+
+    .dots {
+      font-size: 2rem;
+      color: white;
+      margin-left: 5px;
+      animation: moveDots 6s forwards;
     }
 
     @keyframes typing {
       from { width: 0; }
       to { width: 21ch; }
     }
+
+    @keyframes moveDots {
+      0% { margin-left: 5px; }
+      100% { margin-left: -30px; }
+    }
+
+    /* Animation for deletion */
+    .delete-message {
+      animation: delete 4s steps(40) forwards;
+    }
+
     @keyframes delete {
       from { width: 21ch; }
       to { width: 0; }
     }
-
   </style>
 </head>
 <body>
 
   <!-- Welcome Screen Section -->
   <div class="welcome-screen">
-    <div class="welcome-message">
-      Welcome To Iman Website
+    <div class="welcome-message-container">
+      <div class="welcome-message">
+        Welcome To Iman Website
+      </div>
+      <div class="dots">..</div>
     </div>
   </div>
 
   <script>
-    // JavaScript to remove the welcome screen after animation is finished
+    // JavaScript to delete the message after 5 seconds and move dots back
     window.onload = () => {
       setTimeout(() => {
-        document.querySelector('.welcome-screen').style.display = 'none';
-      }, 13000); // The welcome screen will disappear after 13 seconds
+        const message = document.querySelector('.welcome-message');
+        const dots = document.querySelector('.dots');
+        
+        message.classList.add('delete-message');  // Start deleting message
+        dots.style.animation = "moveDots 4s forwards";  // Move dots back to center
+
+        setTimeout(() => {
+          document.querySelector('.welcome-screen').style.display = 'none';  // Remove welcome screen after deletion
+        }, 4000); // Hide after 4 seconds of deletion animation
+      }, 6000); // After 6 seconds, start deleting the message
     };
   </script>
 
