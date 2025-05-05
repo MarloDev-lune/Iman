@@ -7,9 +7,33 @@
     body {
       margin: 0;
       padding: 0;
-      background-color: #ffe6f0; /* وردي فاتح */
+      background-color: #ffe6f0;
       font-family: 'Arial', sans-serif;
       color: #333;
+    }
+
+    .top-left {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      display: flex;
+      align-items: center;
+    }
+
+    .top-left img {
+      width: 60px;
+      height: 60px;
+      border-radius: 10px;
+      margin-right: 10px;
+    }
+
+    .top-left .name {
+      font-size: 26px;
+      font-weight: bold;
+      background: linear-gradient(90deg, #ff4dc1, #ff8c00, #6a5acd, #00ced1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-family: 'Courier New', cursive;
     }
 
     .container {
@@ -29,13 +53,13 @@
     .title {
       font-size: 30px;
       font-weight: bold;
-      color: #d63384; /* وردي غامق */
+      color: #d63384;
       margin-bottom: 10px;
     }
 
     .dynamic-text {
       font-size: 22px;
-      color: #6f42c1; /* بنفسجي ناعم */
+      color: #6f42c1;
       height: 30px;
       margin-bottom: 40px;
     }
@@ -57,6 +81,12 @@
   </style>
 </head>
 <body>
+  <!-- الزاوية العليا اليسرى -->
+  <div class="top-left">
+    <img src="xmait.png" alt="Xmait" />
+    <div class="name">Xmait</div>
+  </div>
+
   <div class="container">
     <img src="logo.png" alt="logo" class="logo" />
     <div class="title">Scorp</div>
@@ -87,7 +117,7 @@
           currentChar++;
         } else {
           isDeleting = true;
-          setTimeout(typeEffect, 1500); // تأخير قبل الحذف
+          setTimeout(typeEffect, 1500);
           return;
         }
       } else {
